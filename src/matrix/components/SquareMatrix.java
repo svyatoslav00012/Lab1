@@ -10,6 +10,7 @@ public class SquareMatrix {
     private boolean isExpanded = false;
     private int permutations = 0;
 
+    //copy constructor
     public SquareMatrix(SquareMatrix another) {
         matrix = new double[another.height()][another.height()];
         for (int i = 0; i < another.height(); ++i)
@@ -17,7 +18,7 @@ public class SquareMatrix {
     }
 
     public SquareMatrix(double[][] matrix) {
-        copyToIt(matrix);
+        copyToThis(matrix);
         if (!isSquare())
             throw new WrongMatrixException();
     }
@@ -42,7 +43,7 @@ public class SquareMatrix {
         return matrix[rowIndex];
     }
 
-    public double[] getRowMultilpliedByCoef(int rowIndex, double coef) {
+    public double[] getRowMultipliedByCoef(int rowIndex, double coef) {
         double[] newRow = new double[width()];
         double[] existingRow = matrix[rowIndex];
         for (int i = 0; i < newRow.length; ++i)
@@ -89,11 +90,11 @@ public class SquareMatrix {
         return matrix.length;
     }
 
-    private void copyToIt(double[][] another){
+    private void copyToThis(double[][] another) {
         int n = another.length;
         int m = another.length == 0 || another[0] == null ? 0 : another[0].length;
         matrix = new double[n][m];
-        for(int i = 0; i < n; ++i)
+        for (int i = 0; i < n; ++i)
             matrix[i] = Arrays.copyOf(another[i], m);
     }
 

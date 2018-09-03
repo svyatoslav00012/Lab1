@@ -24,15 +24,15 @@ public class MatrixSolutions {
         return solution;
     }
 
-    public void calculateSolution() throws ZeroColumnElementException, NoSolutionsException {
+    public void calculateSolution() throws NoSolutionsException {
         checkCorrectSolution();
         calculateLastX();
         calculatePreLastToFirstX();
     }
 
     private void checkCorrectSolution() throws NoSolutionsException {
-        for(int i = 0; i < n; ++i)
-            if(matrix.get(i, i) == 0)
+        for (int i = 0; i < n; ++i)
+            if (matrix.get(i, i) == 0)
                 throw new NoSolutionsException();
     }
 

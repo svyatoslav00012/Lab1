@@ -29,23 +29,23 @@ public class EchelonMatrix extends SquareMatrix {
         int firstRow = level;
         if (rowWithMaxElem != firstRow)
             swapRows(firstRow, rowWithMaxElem);
-        sumRowsWithFirst(level);
+        sumRowsWithFirstOnTheLevel(level);
     }
 
-    private void sumRowsWithFirst(int level) {
+    private void sumRowsWithFirstOnTheLevel(int level) {
         for (int i = level + 1; i < n; ++i)
-            simplifyToRows(level, i);
+            simplifyTwoRows(level, i);
     }
 
-    private void simplifyToRows(int level, int secondRowIndex) {
+    private void simplifyTwoRows(int level, int secondRowIndex) {
         double firstRowFirstElem = get(level, level);
         double secondRowFirstElem = get(secondRowIndex, level);
         double coef = secondRowFirstElem / firstRowFirstElem;
-        double[] newRow = getRowMultilpliedByCoef(level, -coef);
-        addRowsSaveToSecond(newRow, getRow(secondRowIndex));
+        double[] newRow = getRowMultipliedByCoef(level, -coef);
+        addRowsAndSaveToSecond(newRow, getRow(secondRowIndex));
     }
 
-    private void addRowsSaveToSecond(double[] row1, double[] row2) {
+    private void addRowsAndSaveToSecond(double[] row1, double[] row2) {
         for (int i = 0; i < row1.length; ++i)
             row2[i] += row1[i];
     }

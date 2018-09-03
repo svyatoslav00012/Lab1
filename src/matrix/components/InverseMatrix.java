@@ -5,8 +5,8 @@ import matrix.exceptions.ZeroColumnElementException;
 
 public class InverseMatrix {
 
-    double[][] inverseMatrixArray;
-    MatrixSolutions solutions = new MatrixSolutions();
+    private double[][] inverseMatrixArray;
+    private MatrixSolutions solutions = new MatrixSolutions();
     private SquareMatrix matrix;
     private int n;
 
@@ -39,13 +39,10 @@ public class InverseMatrix {
             inverseMatrixArray[row][columnIndex] = solution[row];
     }
 
+    //returns column number @index of E matrix
     private double[] getEColumn(int index) {
         double[] column = new double[n];
         column[index] = 1;
         return column;
-    }
-
-    public void printMatrix() {
-        matrix.print();
     }
 }

@@ -6,9 +6,7 @@ import matrix.exceptions.ZeroColumnElementException;
 import matrix.realization.MatrixUtilsImpl;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-
-import static test.myAssert.Assert.*;
+import static test.myAssert.Assert.assertEquals;
 
 
 public class MyTest {
@@ -25,12 +23,12 @@ public class MyTest {
 
         double expectedResult = -29;
         double actualResult = 0;
+
         try {
             actualResult = utils.getDeterminant(simpleMatrix);
         } catch (ZeroColumnElementException e) {
             assert false;
         }
-        System.out.println(actualResult);
 
         assertEquals(expectedResult, actualResult);
 
@@ -47,12 +45,12 @@ public class MyTest {
 
         double expectedResult = -6;
         double actualResult = 0;
+
         try {
             actualResult = utils.getDeterminant(simpleMatrix);
         } catch (ZeroColumnElementException e) {
             assert false;
         }
-        System.out.println(actualResult);
 
         assertEquals(expectedResult, actualResult);
 
@@ -70,14 +68,15 @@ public class MyTest {
 
         double[] expectedResult = {0, 3};
         double[] actualResult = new double[2];
+
         try {
             actualResult = utils.getSolution(simpleMatrix, b);
         } catch (ZeroColumnElementException e) {
             assert false;
-        } catch (NoSolutionsException e){
+        } catch (NoSolutionsException e) {
             assert false;
         }
-        System.out.println(Arrays.toString(actualResult));
+
         assertEquals(expectedResult, actualResult);
     }
 
@@ -95,14 +94,14 @@ public class MyTest {
 
         double[] expectedResult = {0, 2, 1.0 / 3.0, -1.5};
         double[] actualResult = new double[2];
+
         try {
             actualResult = utils.getSolution(simpleMatrix, b);
         } catch (ZeroColumnElementException e) {
             assert false;
-        } catch (NoSolutionsException e){
+        } catch (NoSolutionsException e) {
             assert false;
         }
-        System.out.println(Arrays.toString(actualResult));
 
         assertEquals(expectedResult, actualResult);
     }
@@ -123,17 +122,13 @@ public class MyTest {
         };
 
         double[][] actualResult = new double[3][3];
+
         try {
             actualResult = utils.getInverse(simpleMatrix);
         } catch (ZeroColumnElementException e) {
             assert false;
         } catch (NoSolutionsException e) {
             assert false;
-        }
-        for (int i = 0; i < actualResult.length; ++i) {
-            for (int j = 0; j < actualResult[i].length; ++j)
-                System.out.print(actualResult[i][j] + " ");
-            System.out.println();
         }
 
         assertEquals(expectedResult, actualResult);
@@ -153,17 +148,13 @@ public class MyTest {
         };
 
         double[][] actualResult = new double[3][3];
+
         try {
             actualResult = utils.getInverse(simpleMatrix);
         } catch (ZeroColumnElementException e) {
             assert false;
         } catch (NoSolutionsException e) {
             assert false;
-        }
-        for (int i = 0; i < actualResult.length; ++i) {
-            for (int j = 0; j < actualResult[i].length; ++j)
-                System.out.print(actualResult[i][j] + " ");
-            System.out.println();
         }
 
         assertEquals(expectedResult, actualResult);
